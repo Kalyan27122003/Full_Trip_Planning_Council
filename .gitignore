@@ -71,4 +71,4 @@ logs/
 # ── Test / Coverage ──────────────────────────────────────────
 .pytest_cache/
 .coverage
-htmlcov/
+htmlcov/pyproject.toml
