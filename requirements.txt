@@ -1,23 +1,7 @@
-cat > requirements.txt << 'EOF'
-langchain>=0.3.0
-langchain-groq>=0.2.0
-langchain-community>=0.3.0
-langgraph>=0.2.0
-chromadb>=0.5.0
-sentence-transformers>=3.0.0
-tavily-python>=0.3.0
-requests>=2.31.0
-streamlit>=1.38.0
-python-dotenv>=1.0.0
-google-auth>=2.35.0
-google-auth-oauthlib>=1.2.0
-google-api-python-client>=2.149.0
-langsmith>=0.1.0
-EOF
-
 langchain==0.3.25
 langchain-groq==0.3.2
 langchain-community==0.3.23
+langchain-text-splitters==0.3.6
 langgraph==0.4.1
 chromadb==0.5.23
 sentence-transformers==3.4.1
