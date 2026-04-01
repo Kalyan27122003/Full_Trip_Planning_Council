@@ -1,0 +1,95 @@
+HOTEL: The Lalit Grand Palace
+LOCATION: Srinagar, Kashmir
+CATEGORY: Luxury (5-star)
+PRICE_PER_NIGHT: ₹15000-25000
+AMENITIES: Spa, Pool, Restaurant, Lake View, Garden, Conference Hall
+RATING: 4.8/5
+BEST_FOR: Honeymoon, Luxury travel
+
+HOTEL: Snow Valley Resorts
+LOCATION: Manali, Himachal Pradesh
+CATEGORY: Mid-range (3-star)
+PRICE_PER_NIGHT: ₹3500-6000
+AMENITIES: Mountain view, Restaurant, Bonfire, Travel desk
+RATING: 4.3/5
+BEST_FOR: Couples, Groups, Adventure travelers
+
+HOTEL: Zostel Manali
+LOCATION: Old Manali, Himachal Pradesh
+CATEGORY: Budget (Hostel)
+PRICE_PER_NIGHT: ₹500-1200 (dorm), ₹1500-2500 (private)
+AMENITIES: Common kitchen, Social events, Travel desk, WiFi
+RATING: 4.5/5
+BEST_FOR: Solo travelers, Backpackers
+
+HOTEL: Taj Exotica Resort & Spa
+LOCATION: Goa, South Goa
+CATEGORY: Luxury (5-star)
+PRICE_PER_NIGHT: ₹12000-30000
+AMENITIES: Private beach, Multiple restaurants, Spa, Pool, Water sports
+RATING: 4.9/5
+BEST_FOR: Honeymoon, Luxury beach vacation
+
+HOTEL: Lemon Tree Hotel
+LOCATION: Candolim, North Goa
+CATEGORY: Mid-range (4-star)
+PRICE_PER_NIGHT: ₹4000-8000
+AMENITIES: Pool, Restaurant, Bar, Beach access, WiFi
+RATING: 4.2/5
+BEST_FOR: Families, Couples, Business travelers
+
+HOTEL: Umaid Bhawan Palace
+LOCATION: Jodhpur, Rajasthan
+CATEGORY: Luxury (Heritage 5-star)
+PRICE_PER_NIGHT: ₹25000-80000
+AMENITIES: Heritage palace, Museum, Spa, Fine dining, Pool
+RATING: 4.9/5
+BEST_FOR: Luxury heritage experience, Honeymoon
+
+HOTEL: Rambagh Palace
+LOCATION: Jaipur, Rajasthan
+CATEGORY: Luxury (Heritage 5-star)
+PRICE_PER_NIGHT: ₹20000-60000
+AMENITIES: Heritage palace, Royal dining, Spa, Pool, Gardens
+RATING: 4.8/5
+BEST_FOR: Luxury travel, Honeymoon
+
+HOTEL: Zostel Jaipur
+LOCATION: Jaipur, Rajasthan
+CATEGORY: Budget (Hostel)
+PRICE_PER_NIGHT: ₹400-800 (dorm), ₹1200-2000 (private)
+AMENITIES: Rooftop, Common area, Travel desk, WiFi
+RATING: 4.4/5
+BEST_FOR: Solo travelers, Backpackers
+
+HOTEL: Kumarakom Lake Resort
+LOCATION: Kumarakom, Kerala
+CATEGORY: Luxury (5-star)
+PRICE_PER_NIGHT: ₹15000-35000
+AMENITIES: Backwater view, Ayurvedic spa, Pool, Restaurant, Houseboat
+RATING: 4.8/5
+BEST_FOR: Honeymoon, Luxury relaxation
+
+HOTEL: Houseboat Stay
+LOCATION: Alleppey, Kerala
+CATEGORY: Experience (Mid-range)
+PRICE_PER_NIGHT: ₹6000-15000 per houseboat
+AMENITIES: All meals included, AC rooms, Backwater cruise, Driver/Chef
+RATING: 4.6/5
+BEST_FOR: Couples, Families, Unique experience seekers
+
+HOTEL: Barefoot at Havelock
+LOCATION: Havelock Island, Andaman
+CATEGORY: Eco-resort (Mid-range)
+PRICE_PER_NIGHT: ₹5000-12000
+AMENITIES: Beach access, Diving center, Restaurant, Eco-cottages
+RATING: 4.5/5
+BEST_FOR: Divers, Nature lovers, Couples
+
+HOTEL: The Grand Dragon Ladakh
+LOCATION: Leh, Ladakh
+CATEGORY: Luxury (4-star)
+PRICE_PER_NIGHT: ₹8000-18000
+AMENITIES: Mountain view, Restaurant, Oxygen supply, Travel desk
+RATING: 4.7/5
+BEST_FOR: Luxury Ladakh experience, Acclimatization

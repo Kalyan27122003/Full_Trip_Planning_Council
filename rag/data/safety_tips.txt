@@ -1,0 +1,79 @@
+DESTINATION: Goa
+SAFETY_LEVEL: Generally Safe
+TIPS:
+- Avoid isolated beaches at night, stick to popular areas
+- Keep valuables in hotel safe, avoid displaying expensive jewelry
+- Be cautious of tourist scams at markets, negotiate prices before buying
+- Water safety: Only swim at lifeguard-patrolled beaches (flag system: green=safe, red=danger)
+- Nightlife safety: Don't accept drinks from strangers
+- Drug laws are strictly enforced despite Goa's reputation
+EMERGENCY:
+- Police: 100 | Tourist Helpline: 1800-209-0110
+- Hospitals: Goa Medical College (Panaji), Apollo Victor Hospital
+- Women safety: Relatively safe but take standard precautions
+
+DESTINATION: Rajasthan
+SAFETY_LEVEL: Safe with precautions
+TIPS:
+- Heat advisory: Summer (April-June) temperatures exceed 45°C, carry water always
+- Camel/horse riding: Use licensed operators only, avoid street touts
+- Bargaining scams: Fixed-price shops recommended for first purchases
+- Desert safety: Never go on camel safari without guide
+- Photography: Always ask permission before photographing locals/religious sites
+- Gem/textile scams: Very common, avoid commission shops recommended by taxi drivers
+EMERGENCY:
+- Police: 100 | Tourist Police: Jaipur (0141-2744000)
+- Hospitals: SMS Hospital Jaipur, Umaid Hospital Jodhpur
+
+DESTINATION: Kerala
+SAFETY_LEVEL: Very Safe
+TIPS:
+- Monsoon travel (June-August): Landslide risk in hill areas, check weather
+- Water activities: Use life jackets on houseboats, check operator certifications
+- Wildlife sanctuaries: Follow forest department guidelines strictly
+- Street food: Generally safe but stick to cooked hot food
+- Heat and humidity: Stay hydrated, wear light cotton clothes
+EMERGENCY:
+- Police: 100 | Tourist Helpline: 1800-425-4747
+- Hospitals: Lakeshore Hospital Kochi, Amrita Institute Kochi
+- Women safety: One of the safest states for women travelers
+
+DESTINATION: Manali
+SAFETY_LEVEL: Mostly Safe, Adventure risks
+TIPS:
+- Mountain sickness: Acclimatize for 1-2 days before high altitude activities
+- Road safety: Rohtang Pass can be dangerous in bad weather, check conditions
+- River activities: Only use certified operators for rafting, check safety equipment
+- Winter travel: Roads can close without notice, carry extra warm clothes
+- Paragliding: Use licensed operators certified by Himachal Tourism
+- Trekking: Never trek alone, inform hotel of trek plans
+EMERGENCY:
+- Police: 100 | Mountain Rescue: Manali Police (01902-252340)
+- Hospitals: Mission Hospital Manali, Regional Hospital Kullu
+- Altitude sickness: Descend immediately if symptoms appear
+
+DESTINATION: Ladakh
+SAFETY_LEVEL: Requires preparation
+TIPS:
+- Altitude sickness (AMS): Very serious risk, acclimatize 2-3 days in Leh
+- Symptoms to watch: Headache, nausea, dizziness — descend if severe
+- Oxygen availability: Many hotels provide oxygen cylinders
+- Road safety: Mountain roads are extreme, hire experienced local drivers
+- Temperature: Can drop to -20°C in winter, pack thermal layers
+- Inner Line Permits: Required for restricted areas, get in advance
+- Mobile connectivity: Only BSNL/Airtel work in most areas
+- ATMs: Very limited, carry sufficient cash from Leh
+EMERGENCY:
+- Police: 100 | Army helpline available for serious emergencies
+- Hospitals: SNM Hospital Leh (only well-equipped hospital)
+- Evacuation: Air evacuation for serious cases, travel insurance mandatory
+
+GENERAL_TRAVEL_SAFETY_INDIA:
+- Always carry a photocopy of passport/ID
+- Use only prepaid taxis from official counters at airports/stations
+- Keep emergency contacts saved offline
+- Travel insurance recommended for all trips
+- Share your itinerary with someone back home
+- Keep ₹500-1000 emergency cash separate from main wallet
+- Download offline maps (Maps.me or Google Maps offline)
+- Emergency number: 112 (works pan-India)

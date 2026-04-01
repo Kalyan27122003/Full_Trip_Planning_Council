@@ -1,0 +1,70 @@
+DESTINATION: Manali, Himachal Pradesh
+TYPE: Hill Station, Adventure
+BEST_TIME: October to June
+HIGHLIGHTS: Rohtang Pass, Solang Valley, Old Manali, Hadimba Temple, Beas River
+BUDGET_RANGE: Budget (₹3000-5000/day), Mid (₹5000-10000/day), Luxury (₹10000+/day)
+IDEAL_FOR: Couples, Adventure seekers, Solo travelers, Groups
+DISTANCE_FROM_DELHI: 570 km
+NEAREST_AIRPORT: Bhuntar (Kullu-Manali Airport)
+LANGUAGE: Hindi, Pahadi
+MUST_DO: Paragliding, Snow activities, Camping, River rafting
+
+DESTINATION: Goa
+TYPE: Beach, Nightlife, Culture
+BEST_TIME: November to February
+HIGHLIGHTS: Baga Beach, Anjuna Beach, Dudhsagar Falls, Old Goa Churches, Spice Plantations
+BUDGET_RANGE: Budget (₹2000-4000/day), Mid (₹4000-8000/day), Luxury (₹8000+/day)
+IDEAL_FOR: Couples, Friends groups, Solo travelers, Party lovers
+NEAREST_AIRPORT: Dabolim Airport / Mopa Airport
+LANGUAGE: Konkani, English, Hindi
+MUST_DO: Beach hopping, Water sports, Flea markets, Sunset cruise, Cashew feni tasting
+
+DESTINATION: Rajasthan (Jaipur + Jodhpur + Jaisalmer)
+TYPE: Heritage, Culture, Desert
+BEST_TIME: October to March
+HIGHLIGHTS: Amber Fort, Mehrangarh Fort, Sam Sand Dunes, City Palace, Hawa Mahal
+BUDGET_RANGE: Budget (₹2500-5000/day), Mid (₹5000-12000/day), Luxury (₹12000+/day)
+IDEAL_FOR: History lovers, Couples, Families, Photography enthusiasts
+NEAREST_AIRPORT: Jaipur International Airport
+LANGUAGE: Hindi, Rajasthani
+MUST_DO: Camel safari, Palace stay, Desert camping, Folk dance shows, Shopping
+
+DESTINATION: Kerala (Munnar + Alleppey + Kovalam)
+TYPE: Nature, Backwaters, Beaches
+BEST_TIME: September to March
+HIGHLIGHTS: Alleppey Backwaters, Munnar Tea Gardens, Periyar Wildlife Sanctuary, Kovalam Beach
+BUDGET_RANGE: Budget (₹2000-4000/day), Mid (₹4000-9000/day), Luxury (₹9000+/day)
+IDEAL_FOR: Couples, Families, Nature lovers, Honeymooners
+NEAREST_AIRPORT: Cochin International Airport
+LANGUAGE: Malayalam, English
+MUST_DO: Houseboat stay, Ayurvedic spa, Elephant ride, Kathakali show, Spice plantation tour
+
+DESTINATION: Andaman Islands
+TYPE: Beach, Scuba, Nature
+BEST_TIME: November to May
+HIGHLIGHTS: Radhanagar Beach, Cellular Jail, Havelock Island, Neil Island, Ross Island
+BUDGET_RANGE: Budget (₹3000-6000/day), Mid (₹6000-12000/day), Luxury (₹12000+/day)
+IDEAL_FOR: Couples, Honeymooners, Adventure seekers, Scuba divers
+NEAREST_AIRPORT: Veer Savarkar International Airport (Port Blair)
+LANGUAGE: Hindi, Bengali, Tamil
+MUST_DO: Scuba diving, Snorkeling, Glass-bottom boat, Light & Sound show, Beach camping
+
+DESTINATION: Ladakh
+TYPE: Adventure, Scenic, Spiritual
+BEST_TIME: June to September
+HIGHLIGHTS: Pangong Lake, Nubra Valley, Khardung La Pass, Leh Palace, Magnetic Hill
+BUDGET_RANGE: Budget (₹3500-6000/day), Mid (₹6000-12000/day), Luxury (₹12000+/day)
+IDEAL_FOR: Adventure seekers, Bikers, Solo travelers, Spiritual seekers
+NEAREST_AIRPORT: Kushok Bakula Rimpochhe Airport (Leh)
+LANGUAGE: Ladakhi, Hindi
+MUST_DO: Bike trip, Monastery visits, Trekking, Camping at Pangong, Nubra camel safari
+
+DESTINATION: Rishikesh + Haridwar
+TYPE: Spiritual, Adventure, Yoga
+BEST_TIME: September to June
+HIGHLIGHTS: Laxman Jhula, Ram Jhula, Ganga Aarti, Triveni Ghat, Beatles Ashram
+BUDGET_RANGE: Budget (₹1500-3000/day), Mid (₹3000-7000/day), Luxury (₹7000+/day)
+IDEAL_FOR: Spiritual seekers, Yoga lovers, Adventure seekers, Solo travelers
+NEAREST_AIRPORT: Jolly Grant Airport (Dehradun)
+LANGUAGE: Hindi
+MUST_DO: Ganga Aarti, White water rafting, Bungee jumping, Yoga retreat, Camping

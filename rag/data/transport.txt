@@ -1,0 +1,91 @@
+ROUTE: Hyderabad to Goa
+FLIGHT:
+- Airlines: IndiGo, Air India, SpiceJet
+- Duration: 1.5 hours
+- Avg Price: ₹3000-8000 one way
+- Airports: RGIA Hyderabad → Dabolim/Mopa Goa
+TRAIN:
+- Options: Konark Express (11hr), Goa Express (15hr)
+- Avg Price: ₹500-1500 (Sleeper to 3AC)
+- Best Option: Book 2AC for overnight comfort
+BUS:
+- Operators: VRL Travels, SRS Travels, Paulo Travels
+- Duration: 12-14 hours overnight
+- Avg Price: ₹800-2000 (Sleeper/Volvo)
+- Pickup: Majestic Bus Stand / Uppal
+LOCAL_TRANSPORT_AT_DESTINATION:
+- Bike/Scooter rental: ₹300-500/day (recommended)
+- App taxis: Goa Miles app
+- Local buses: ₹10-50 per trip
+
+ROUTE: Hyderabad to Manali
+FLIGHT:
+- Via Delhi: IndiGo/Air India HYD→DEL (2hr) + DEL→Bhuntar (1hr)
+- Avg Price: ₹6000-15000 round trip
+- Then road from Bhuntar to Manali: 2.5 hours by taxi (₹1500-2000)
+TRAIN:
+- HYD to Chandigarh/Ambala → then bus/taxi to Manali
+- Train: ₹800-2000, then Volvo bus: ₹600-1200
+- Total time: 20-25 hours
+BUS:
+- HRTC Volvo from Delhi/Chandigarh to Manali
+- Duration from Delhi: 14-16 hours
+- Price: ₹700-1400
+LOCAL_TRANSPORT_AT_DESTINATION:
+- Local taxis: ₹1000-2000/day for sightseeing
+- Shared jeep: ₹50-200 per trip
+- Bike rental: ₹600-1000/day
+
+ROUTE: Hyderabad to Kerala (Kochi)
+FLIGHT:
+- Airlines: IndiGo, Air India, Vistara
+- Duration: 1.5 hours direct
+- Avg Price: ₹3000-7000 one way
+TRAIN:
+- Sabari Express, Rajdhani options
+- Duration: 12-16 hours
+- Avg Price: ₹600-1800
+BUS:
+- KSRTC and private operators
+- Duration: 14-16 hours overnight
+- Price: ₹800-1800
+LOCAL_TRANSPORT_AT_DESTINATION:
+- Houseboat: ₹6000-15000/night (Alleppey)
+- Auto rickshaw: ₹50-200
+- Waterway ferries: ₹5-20 per trip (authentic experience)
+- Rental car with driver: ₹2000-3000/day
+
+ROUTE: Hyderabad to Rajasthan (Jaipur)
+FLIGHT:
+- Airlines: IndiGo, Air India
+- Duration: 2 hours direct
+- Avg Price: ₹3500-9000 one way
+TRAIN:
+- Hyderabad-Jaipur Express
+- Duration: 22-26 hours
+- Avg Price: ₹700-2000
+BUS:
+- RSRTC and private operators via Nagpur
+- Duration: 18-22 hours
+- Price: ₹1000-2000
+LOCAL_TRANSPORT_AT_DESTINATION:
+- Taxi: ₹1500-2500/day for sightseeing circuit
+- Auto rickshaw: ₹50-200
+- Camel safari: ₹500-2000 (Jaisalmer)
+- Local buses: ₹15-50 per trip
+
+ROUTE: Hyderabad to Ladakh (Leh)
+FLIGHT:
+- Via Delhi: HYD→DEL (2hr) + DEL→LEH (1.5hr)
+- Avg Price: ₹8000-20000 round trip
+- Best option due to altitude acclimatization needs
+ROAD:
+- Manali-Leh Highway: 2 days by bus/bike (open June-September only)
+- Srinagar-Leh Highway: 2 days (open May-October)
+- Shared jeep from Manali: ₹1200-2000
+LOCAL_TRANSPORT_AT_DESTINATION:
+- Taxi from Leh airport: ₹300-500
+- Hired taxis for circuits: ₹3000-6000/day
+- Bike rental: ₹800-1500/day (Royal Enfield)
+- Shared jeeps to Pangong/Nubra: ₹800-1500
+INNER_LINE_PERMIT: Required for Nubra, Pangong, Dha-Hanu (₹200-400)

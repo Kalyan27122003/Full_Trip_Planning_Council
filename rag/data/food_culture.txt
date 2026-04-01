@@ -1,0 +1,89 @@
+DESTINATION: Goa
+MUST_EAT:
+- Fish Curry Rice: Staple Goan meal, best at beach shacks
+- Prawn Balchão: Spicy pickled prawn curry
+- Bebinca: Traditional layered Goan dessert
+- Vindaloo: Fiery pork/chicken curry
+- Feni: Local cashew/coconut liquor (must try!)
+BEST_RESTAURANTS:
+- Fisherman's Wharf (South Goa): Authentic seafood, riverside dining
+- Britto's (Baga Beach): Famous landmark, party vibes
+- Gunpowder (Assagao): South Indian meets Goan fusion
+- Vinayak Family Restaurant (Margao): Local authentic thali
+CULTURAL_EXPERIENCES:
+- Carnival of Goa (February): Colorful street parade
+- Flea Markets: Anjuna (Wednesday), Ingo's Saturday Night Market
+- Old Goa Churches: UNESCO Heritage, St. Francis of Assisi
+- Spice Plantation Tour: Interactive cooking + lunch
+
+DESTINATION: Rajasthan
+MUST_EAT:
+- Dal Baati Churma: Iconic Rajasthani dish, ghee-loaded
+- Laal Maas: Fiery mutton curry
+- Ghewar: Disc-shaped sweet, especially during festivals
+- Mirchi Bada: Spicy stuffed chilli fritters
+- Pyaaz Kachori: Flaky onion-stuffed pastry
+BEST_RESTAURANTS:
+- Chokhi Dhani (Jaipur): Village theme, authentic Rajasthani thali
+- Spice Court (Jaipur): Award-winning local cuisine
+- Mihir Garh (Jodhpur): Luxury desert dining
+- Trio Restaurant (Jaisalmer): Rooftop with fort view
+CULTURAL_EXPERIENCES:
+- Pushkar Camel Fair (November): World's largest camel fair
+- Jaipur Literature Festival (January): World's biggest free literary festival
+- Puppet shows and folk dances: Daily at cultural centers
+- Block printing workshops: Sanganer and Bagru villages
+
+DESTINATION: Kerala
+MUST_EAT:
+- Sadya: Grand vegetarian feast on banana leaf (Sunday tradition)
+- Appam with Stew: Lacy rice pancakes with coconut milk stew
+- Karimeen Pollichathu: Pearl spot fish wrapped in banana leaf
+- Kerala Prawn Curry: Coconut milk based, served with rice
+- Puttu and Kadala Curry: Steamed rice cake with black chickpea curry
+BEST_RESTAURANTS:
+- Dhe Puttu (Kochi): Famous for creative puttu variations
+- Paragon Restaurant (Kozhikode): Legendary Malabar biryani
+- Malabar Junction (Kovalam): Fine dining with sea view
+- Backwater Ripples (Alleppey): Authentic Kerala meals
+CULTURAL_EXPERIENCES:
+- Kathakali Dance: Classical dance-drama, colorful costumes
+- Kalaripayattu: Ancient martial art performance
+- Onam Festival (August-September): Grand harvest celebration
+- Thrissur Pooram: Spectacular temple festival with elephants
+
+DESTINATION: Manali
+MUST_EAT:
+- Siddu: Local stuffed bread with ghee
+- Trout Fish: Fresh from Beas river, grilled or fried
+- Dham: Traditional Himachali festive meal on leaf plates
+- Chha Gosht: Marinated lamb in yogurt gravy
+- Aktori: Buckwheat pancake, local breakfast
+BEST_RESTAURANTS:
+- Johnson's Cafe (Manali): Pioneer of Manali dining, trout speciality
+- Drifter's Inn & Cafe (Old Manali): Hippie vibes, international food
+- Lazy Dog Lounge (Old Manali): Great views, multi-cuisine
+- Chopsticks (Mall Road): Chinese and Tibetan food
+CULTURAL_EXPERIENCES:
+- Hadimba Temple: Unique pagoda-style temple in cedar forest
+- Tibetan Monastery: Gadhan Thekchhokling Gompa in Old Manali
+- Naggar Castle: 500-year-old heritage castle
+- Kullu Dussehra Festival (October): International fair, unique celebrations
+
+DESTINATION: Ladakh
+MUST_EAT:
+- Thukpa: Tibetan noodle soup, perfect for cold weather
+- Momos: Steamed/fried dumplings with meat or veg filling
+- Tsampa: Roasted barley flour, staple Ladakhi food
+- Butter Tea (Gur Gur Chai): Salted yak butter tea
+- Skyu: Thick stew with hand-rolled pasta and root vegetables
+BEST_RESTAURANTS:
+- Bon Appetit (Leh): Best momos and Ladakhi cuisine
+- Tibetan Kitchen (Leh): Authentic Tibetan food
+- Nezer View Restaurant (Leh): Rooftop with great mountain views
+- The Open Hand (Leh): Organic cafe, great breakfast
+CULTURAL_EXPERIENCES:
+- Hemis Festival (June-July): Largest monastery festival, masked dances
+- Losar (Ladakhi New Year, December-January): Traditional celebrations
+- Archery Festival: Traditional sport competitions
+- Stok Palace Museum: Royal artifacts and costumes
