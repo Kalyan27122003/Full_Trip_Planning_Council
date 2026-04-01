@@ -5,6 +5,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# app.py — add after imports, before st.set_page_config
+import os
+from pathlib import Path
+
+chroma_path = Path("rag/chroma_db")
+if not chroma_path.exists() or not any(chroma_path.iterdir()):
+    from rag.ingest import ingest_all
+    ingest_all()
+
 # ── Page config ───────────────────────────────────────────────
 st.set_page_config(
     page_title="✈️ Full Trip Planning Council",
