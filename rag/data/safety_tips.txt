@@ -268,3 +268,63 @@ PRE_DEPARTURE_CHECKLIST:
 - Altitude kit (if Ladakh/Manali): Diamox (prescription), pulse oximeter (very useful, ₹800-1,500)
 - Cash: India is cash-heavy — carry sufficient local currency
 - Bank alert: Notify bank about travel dates to avoid card being blocked
+
+
+# ─────────────────────────────────────────────────────────────
+# UTTAR PRADESH (VARANASI / AGRA / LUCKNOW)
+# ─────────────────────────────────────────────────────────────
+
+DESTINATION: Varanasi
+SAFETY_RATING: Safe with awareness (3.5/5)
+EMERGENCY:
+- UP Police Tourist Helpline: 1800-180-0151
+- Sir Sundar Lal Hospital (BHU): 0542-2307404
+- Heritage Hospital Varanasi: 0542-2220331
+- Varanasi District Hospital: 0542-2500540
+ENTRY_FEES_ACCURATE:
+- Kashi Vishwanath Temple: FREE entry (no ticket required)
+- Kashi Vishwanath Corridor: Rs.0 (walking through is free)
+- Sarnath Museum (ASI): Rs.25 Indians, Rs.300 foreigners
+- Sarnath Dhamek Stupa area: Rs.25 Indians
+- BHU campus: FREE entry
+- Ramnagar Fort: Rs.10 entry
+- Boat ride Ganga (shared, 30 min): Rs.50-100 per person shared boat / Rs.300-500 private boat
+- Sunrise boat ride (longer, 1 hr): Rs.150-200 per person shared
+SCAMS:
+- Touts at ghats: Will offer "free" boat ride then demand Rs.500-2000 — agree price BEFORE boarding
+- Priest scams: Unsolicited puja at ghats — can become expensive, decline politely
+- Bhang lassi: Very potent, sold openly — tourists often end up incapacitated
+- Auto/rickshaw: Always negotiate fare before boarding, meter rarely used
+TIPS:
+- Manikarnika Ghat (burning ghat): Respectful viewing from distance is OK, no photos
+- Remove shoes before entering all temples and mosques
+- Dress modestly at religious sites — cover shoulders and knees
+- Early morning boat ride (5-6 AM) for Ganga Aarti and sunrise is the best Varanasi experience
+
+DESTINATION: Agra
+EMERGENCY:
+- UP Tourist Police: 0562-2421604
+- SN Medical College Hospital: 0562-2600118
+- District Hospital Agra: 0562-2464350
+ENTRY_FEES_ACCURATE:
+- Taj Mahal: Rs.250 Indians (main mausoleum + Rs.200 for inner chamber)
+- Agra Fort: Rs.50 Indians
+- Fatehpur Sikri: Rs.40 Indians
+- Itmad-ud-Daulah (Baby Taj): Rs.30 Indians
+- Mehtab Bagh: Rs.25 Indians
+- Chini Ka Rauza: Free
+
+DESTINATION: Andhra Pradesh (Visakhapatnam / Tirupati / Araku)
+EMERGENCY:
+- AP Tourism: 1800-425-4747
+- King George Hospital Visakhapatnam: 0891-2564891
+- Government General Hospital Guntur: 0863-2228300
+- Tirupati Government Hospital: 0877-2287777
+ENTRY_FEES_ACCURATE:
+- Visakhapatnam Port Trust: Rs.20 Indians
+- Kailasagiri Hill (entry): FREE (ropeway Rs.80-120 extra)
+- Borra Caves: Rs.65 Indians
+- Araku Valley: No entry fee
+- INS Kurusura Submarine Museum: Rs.40 Indians
+- Rushikonda Beach: FREE
+- Sri Venkateswara Temple Tirupati: FREE darshan (Special Rs.300, Seegra Rs.600)

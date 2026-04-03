@@ -198,3 +198,39 @@ APP_TAXIS:
 - Uber: Available in major cities, international payment accepted
 - Rapido: Bike taxis — cheap for short distances (₹30-100)
 - InDrive: Negotiate price directly with driver
+
+
+# ─────────────────────────────────────────────────────────────
+# ACCURATE TRAIN FARES (IRCTC 2025 APPROXIMATE)
+# ─────────────────────────────────────────────────────────────
+
+TRAIN_FARE_GUIDE:
+Distance 0-100km:   Sleeper Rs.50-120   | 3AC Rs.150-250  | 2AC Rs.250-400
+Distance 100-300km: Sleeper Rs.120-300  | 3AC Rs.350-600  | 2AC Rs.600-900
+Distance 300-600km: Sleeper Rs.300-500  | 3AC Rs.700-1100 | 2AC Rs.1000-1600
+Distance 600-1000km: Sleeper Rs.450-700 | 3AC Rs.900-1500 | 2AC Rs.1400-2200
+Distance 1000-1500km: Sleeper Rs.550-800| 3AC Rs.1200-1800| 2AC Rs.1800-2800
+Distance 1500km+:   Sleeper Rs.650-1000 | 3AC Rs.1500-2200| 2AC Rs.2200-3500
+
+ROUTE: Gollaprolu to Varanasi (approx 1100km)
+TRAIN: Coromandel Express / East Coast Express connections
+FARE: Sleeper Rs.500-700 | 3AC Rs.1,100-1,400 | 2AC Rs.1,600-2,100
+DURATION: ~18-22 hours (requires connection via Vijayawada/Hyderabad or direct)
+NOTE: No direct train Gollaprolu to Varanasi — connect via Vijayawada
+
+ROUTE: Gollaprolu to Visakhapatnam (approx 80km)
+TRAIN: Passenger/Express trains
+FARE: Sleeper Rs.60-90 | General Rs.30-50
+DURATION: 1.5-2.5 hours
+BUS: APSRTC Rs.60-90
+
+ROUTE: Gollaprolu to Kakinada (approx 24km)
+BUS: APSRTC local bus Rs.25-40 per person
+AUTO: Rs.150-200 shared / Rs.300-400 private
+DURATION: 45-60 minutes
+
+ROUTE: Hyderabad to Varanasi
+TRAIN: Dakshin Express, Sabarmati Express
+FARE: Sleeper Rs.550-750 | 3AC Rs.1,200-1,600
+DURATION: 22-26 hours
+FLIGHT: IndiGo/Air India Rs.3,000-7,000 one way (1.5 hrs via Lucknow or direct)
