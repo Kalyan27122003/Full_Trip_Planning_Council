@@ -84,9 +84,31 @@ def _markdown_to_html(text: str) -> str:
     return '\n'.join(html_lines)
 
 
-def _build_html_email(destination: str, travel_dates: str, travelers: str, budget: str, body: str) -> str:
+def _build_html_email(destination: str, travel_dates: str, travelers: str, budget: str, body: str, calendar_link: str = None) -> str:
     """Build a beautiful professional HTML email."""
     content_html = _markdown_to_html(body)
+
+    # Build calendar button HTML
+    if calendar_link:
+        cal_section = """
+        <tr>
+          <td style="background:#eff6ff;padding:20px 36px;text-align:center;border:1px solid #bfdbfe;border-top:none;">
+            <p style="margin:0 0 12px 0;color:#1e40af;font-size:14px;font-weight:600;">
+              📅 Add This Trip to Your Google Calendar
+            </p>
+            <a href="{link}"
+               style="display:inline-block;background:#2563eb;color:#ffffff;
+                      text-decoration:none;padding:12px 28px;border-radius:8px;
+                      font-size:14px;font-weight:600;letter-spacing:0.5px;">
+              📅 View in Google Calendar
+            </a>
+            <p style="margin:10px 0 0 0;color:#64748b;font-size:11px;">
+              Click the button above to view the trip event in Google Calendar
+            </p>
+          </td>
+        </tr>""".format(link=calendar_link)
+    else:
+        cal_section = ""
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -166,6 +188,9 @@ def _build_html_email(destination: str, travel_dates: str, travelers: str, budge
           </td>
         </tr>
 
+        <!-- CALENDAR BUTTON -->
+        """ + cal_section + """
+
         <!-- AGENT BADGES -->
         <tr>
           <td style="background:#f8fafc;padding:20px 36px;border:1px solid #e2e8f0;border-top:none;">
@@ -206,38 +231,55 @@ def _build_html_email(destination: str, travel_dates: str, travelers: str, budge
 </html>"""
 
 
-def send_itinerary_email(to_email: str, subject: str, body: str,
+def send_itinerary_email(to_email, subject: str, body: str,
                          destination: str = "Your Destination",
                          travel_dates: str = "", travelers: str = "2",
-                         budget: str = "") -> str:
-    """Send a beautiful HTML itinerary email via Gmail SMTP."""
+                         budget: str = "",
+                         calendar_link: str = None) -> str:
+    """
+    Send ONE email to one or multiple recipients.
+    to_email: str (single) or list of str (multiple) — ONE email is sent to all.
+    calendar_link: if provided, embedded as a button inside the email.
+    """
     sender  = os.getenv("GMAIL_SENDER")
     app_pwd = os.getenv("GMAIL_APP_PASSWORD")
 
     if not sender or not app_pwd:
         return "⚠️ Gmail credentials not configured."
 
+    # Normalise to list
+    if isinstance(to_email, str):
+        recipients = [e.strip() for e in to_email.replace(";", ",").split(",") if "@" in e.strip()]
+    else:
+        recipients = list(to_email)
+
+    if not recipients:
+        return "⚠️ No valid email addresses provided."
+
+    # For display in To: header — all recipients see each other
+    to_header = ", ".join(recipients)
+
     try:
         msg = MIMEMultipart("alternative")
         msg["Subject"] = subject
         msg["From"]    = f"✈️ Trip Planning Council <{sender}>"
-        msg["To"]      = to_email
+        msg["To"]      = to_header          # All recipients in one To: field
 
-        # Plain text fallback
         plain = MIMEText(body, "plain")
-
-        # Beautiful HTML version
-        html_content = _build_html_email(destination, travel_dates, travelers, budget, body)
+        html_content = _build_html_email(destination, travel_dates, travelers, budget, body, calendar_link)
         html = MIMEText(html_content, "html")
 
         msg.attach(plain)
-        msg.attach(html)   # HTML is preferred by email clients
+        msg.attach(html)
 
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
             server.login(sender, app_pwd)
-            server.sendmail(sender, to_email, msg.as_string())
+            server.sendmail(sender, recipients, msg.as_string())  # send to all at once
 
-        return f"✅ Itinerary sent successfully to {to_email}"
+        if len(recipients) == 1:
+            return f"✅ Itinerary sent successfully to {recipients[0]}"
+        else:
+            return f"✅ Itinerary sent to {len(recipients)} recipients: {to_header}"
     except smtplib.SMTPAuthenticationError:
         return "❌ Gmail authentication failed. Check your App Password."
     except Exception as e:
