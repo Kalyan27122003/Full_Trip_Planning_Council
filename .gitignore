@@ -72,3 +72,6 @@ logs/
 .pytest_cache/
 .coverage
 htmlcov/pyproject.toml
+
+# These should already be there, verify:
+grep "credentials\|token" .gitignore

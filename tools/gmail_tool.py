@@ -256,14 +256,24 @@ def send_itinerary_email(to_email, subject: str, body: str,
     if not recipients:
         return "⚠️ No valid email addresses provided."
 
-    # For display in To: header — all recipients see each other
-    to_header = ", ".join(recipients)
+    # Gmail free account limit: 500 recipients/day, 100 per email
+    MAX_PER_EMAIL = 100
+    if len(recipients) > MAX_PER_EMAIL:
+        return f"⚠️ Too many recipients ({len(recipients)}). Gmail allows max {MAX_PER_EMAIL} per email."
+
+    # Use To for single recipient, BCC for multiple (privacy — recipients don't see each other)
+    primary    = recipients[0]
+    bcc_list   = recipients[1:] if len(recipients) > 1 else []
 
     try:
         msg = MIMEMultipart("alternative")
         msg["Subject"] = subject
         msg["From"]    = f"✈️ Trip Planning Council <{sender}>"
-        msg["To"]      = to_header          # All recipients in one To: field
+        msg["To"]      = primary
+
+        # Add BCC for all other recipients (they won't see each other's emails)
+        if bcc_list:
+            msg["Bcc"] = ", ".join(bcc_list)
 
         plain = MIMEText(body, "plain")
         html_content = _build_html_email(destination, travel_dates, travelers, budget, body, calendar_link)
@@ -274,13 +284,17 @@ def send_itinerary_email(to_email, subject: str, body: str,
 
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
             server.login(sender, app_pwd)
-            server.sendmail(sender, recipients, msg.as_string())  # send to all at once
+            # sendmail to ALL recipients (To + BCC) in one SMTP transaction
+            server.sendmail(sender, recipients, msg.as_string())
 
         if len(recipients) == 1:
-            return f"✅ Itinerary sent successfully to {recipients[0]}"
+            return f"✅ Itinerary sent to {recipients[0]}"
         else:
-            return f"✅ Itinerary sent to {len(recipients)} recipients: {to_header}"
+            return f"✅ Itinerary sent to {len(recipients)} recipients (1 To + {len(bcc_list)} BCC)"
     except smtplib.SMTPAuthenticationError:
         return "❌ Gmail authentication failed. Check your App Password."
+    except smtplib.SMTPRecipientsRefused as e:
+        failed = list(e.recipients.keys())
+        return f"⚠️ Some addresses rejected: {failed}"
     except Exception as e:
         return f"❌ Email send error: {str(e)}"
