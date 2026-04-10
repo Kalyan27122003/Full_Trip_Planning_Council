@@ -8,6 +8,34 @@ from graph.state import TripState
 
 load_dotenv()
 
+# Fallback emergency contacts by state/city
+EMERGENCY_CONTACTS_DB = {
+    "andhra pradesh": ("Government General Hospital Vijayawada: 0866-2472600", "AP Tourism: 1800-425-4747"),
+    "vizag": ("King George Hospital Visakhapatnam: 0891-2564891", "AP Tourism: 1800-425-4747"),
+    "visakhapatnam": ("King George Hospital Visakhapatnam: 0891-2564891", "AP Tourism: 1800-425-4747"),
+    "hyderabad": ("Osmania General Hospital: 040-24600300", "TS Tourism: 040-23452456"),
+    "telangana": ("Osmania General Hospital: 040-24600300", "TS Tourism: 040-23452456"),
+    "goa": ("Goa Medical College: 0832-2458700", "Goa Tourism: 1800-209-0110"),
+    "kerala": ("Lakeshore Hospital Kochi: 0484-2701032", "Kerala Tourism: 1800-425-4747"),
+    "rajasthan": ("SMS Hospital Jaipur: 0141-2518501", "Rajasthan Tourism: 0141-2385337"),
+    "delhi": ("AIIMS Delhi: 011-26588500", "Delhi Tourism: 011-23364763"),
+    "mumbai": ("KEM Hospital: 022-24107000", "Maharashtra Tourism: 022-22027762"),
+    "manali": ("Mission Hospital Manali: 01902-252379", "HP Tourism: 0177-2652640"),
+    "ladakh": ("SNM Hospital Leh: 01982-252360", "J&K Tourism: 0194-2548172"),
+    "varanasi": ("Sir Sundar Lal Hospital BHU: 0542-2307404", "UP Tourism: 1800-180-0151"),
+    "agra": ("SN Medical College: 0562-2600118", "UP Tourism: 1800-180-0151"),
+    "andaman": ("GB Pant Hospital Port Blair: 03192-232102", "Andaman Tourism: 03192-232694"),
+    "default": ("Nearest Government Hospital", "State Tourist Helpline: 1800-111-363"),
+}
+
+def get_emergency_contacts(destination: str) -> tuple:
+    dest_lower = destination.lower()
+    for key, contacts in EMERGENCY_CONTACTS_DB.items():
+        if key in dest_lower or dest_lower in key:
+            return contacts
+    return EMERGENCY_CONTACTS_DB["default"]
+
+
 def _trim(text: str, limit: int = 250) -> str:
     text = (text or "N/A").strip()
     return text[:limit] + "..." if len(text) > limit else text
@@ -181,8 +209,8 @@ PACKING LIST (5 items specific to {destination} and this season):
 
 EMERGENCY CONTACTS:
 • Police: 100 | Ambulance: 108 | Emergency: 112
-• [Nearest district hospital]
-• [State tourist helpline]
+• {{hospital_contact}}
+• {{helpline_contact}}
 
 3 PRO TIPS FOR {destination.upper()}:
 1. [Specific genuine tip]
