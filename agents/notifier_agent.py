@@ -8,24 +8,9 @@ from graph.state import TripState
 load_dotenv()
 
 def _parse_dates(travel_dates: str):
-    from datetime import datetime
-    raw = travel_dates.strip()
-    for sep in [" to ", " - ", " – "]:
-        if sep in raw:
-            parts = [p.strip() for p in raw.split(sep, 1)]
-            break
-    else:
-        return None, None
-    formats = ["%d %b %Y", "%d %B %Y", "%Y-%m-%d", "%d/%m/%Y",
-               "%d-%m-%Y", "%d %b %y", "%d %B %y"]
-    for fmt in formats:
-        try:
-            start = datetime.strptime(parts[0], fmt).strftime("%Y-%m-%d")
-            end   = datetime.strptime(parts[1], fmt).strftime("%Y-%m-%d")
-            return start, end
-        except ValueError:
-            continue
-    return None, None
+    from tools.calendar_tool import parse_travel_dates
+    start, end, _ = parse_travel_dates(travel_dates)
+    return start, end
 
 def _capitalize_destination(destination: str) -> str:
     abbrevs = {

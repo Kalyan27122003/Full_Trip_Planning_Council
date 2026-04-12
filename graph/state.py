@@ -7,10 +7,11 @@ class TripState(TypedDict):
     origin: str
     destination_preference: str
     travel_dates: str
-    duration_days: int
+    duration_days: int          # auto-calculated from travel_dates
     budget_inr: int
     travelers: int
     interests: str
+    specific_places: str        # NEW: user-specified places (optional)
     email: str
 
     # ── Agent Outputs ────────────────────────────────────────

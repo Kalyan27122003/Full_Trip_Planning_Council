@@ -8,11 +8,20 @@ from graph.state import TripState
 
 load_dotenv()
 
-# Fallback emergency contacts by state/city
+SEASONAL_WARNINGS = {
+    "ladakh": {
+        "closed_months": [11, 12, 1, 2, 3, 4],
+        "warning": "LADAKH APRIL WARNING: Pangong, Nubra, Tso Moriri roads CLOSED. Only Leh city monasteries accessible."
+    },
+    "spiti":  {"closed_months": [11,12,1,2,3,4], "warning": "Spiti roads closed Nov-April."},
+    "manali": {"closed_months": [12,1,2], "warning": "Rohtang Pass closed Dec-April."},
+}
+
 EMERGENCY_CONTACTS_DB = {
     "andhra pradesh": ("Government General Hospital Vijayawada: 0866-2472600", "AP Tourism: 1800-425-4747"),
     "vizag": ("King George Hospital Visakhapatnam: 0891-2564891", "AP Tourism: 1800-425-4747"),
     "visakhapatnam": ("King George Hospital Visakhapatnam: 0891-2564891", "AP Tourism: 1800-425-4747"),
+    "kakinada": ("Government Hospital Kakinada: 0884-2344800", "AP Tourism: 1800-425-4747"),
     "hyderabad": ("Osmania General Hospital: 040-24600300", "TS Tourism: 040-23452456"),
     "telangana": ("Osmania General Hospital: 040-24600300", "TS Tourism: 040-23452456"),
     "goa": ("Goa Medical College: 0832-2458700", "Goa Tourism: 1800-209-0110"),
@@ -23,36 +32,7 @@ EMERGENCY_CONTACTS_DB = {
     "manali": ("Mission Hospital Manali: 01902-252379", "HP Tourism: 0177-2652640"),
     "ladakh": ("SNM Hospital Leh: 01982-252360", "J&K Tourism: 0194-2548172"),
     "varanasi": ("Sir Sundar Lal Hospital BHU: 0542-2307404", "UP Tourism: 1800-180-0151"),
-    "agra": ("SN Medical College: 0562-2600118", "UP Tourism: 1800-180-0151"),
-    "andaman": ("GB Pant Hospital Port Blair: 03192-232102", "Andaman Tourism: 03192-232694"),
-    "default": ("Nearest Government Hospital", "State Tourist Helpline: 1800-111-363"),
-}
-
-def get_emergency_contacts(destination: str) -> tuple:
-    dest_lower = destination.lower()
-    for key, contacts in EMERGENCY_CONTACTS_DB.items():
-        if key in dest_lower or dest_lower in key:
-            return contacts
-    return EMERGENCY_CONTACTS_DB["default"]
-
-
-def _trim(text: str, limit: int = 250) -> str:
-    text = (text or "N/A").strip()
-    return text[:limit] + "..." if len(text) > limit else text
-
-SEASONAL_WARNINGS = {
-    "ladakh": {
-        "closed_months": [11, 12, 1, 2, 3, 4],
-        "warning": "⚠️ LADAKH APRIL WARNING: Pangong, Nubra, Tso Moriri roads CLOSED in April. Only Leh city + nearby monasteries accessible. Major passes open mid-May."
-    },
-    "spiti": {
-        "closed_months": [11, 12, 1, 2, 3, 4],
-        "warning": "⚠️ Spiti roads closed Nov-April. Accessible June-October only."
-    },
-    "manali": {
-        "closed_months": [12, 1, 2],
-        "warning": "⚠️ Rohtang Pass closed Dec-April. Atal Tunnel open year-round."
-    },
+    "default": ("Nearest Government Hospital (dial 108)", "State Tourist Helpline: 1800-111-363"),
 }
 
 def get_seasonal_warning(destination: str, travel_dates: str) -> str:
@@ -69,152 +49,134 @@ def get_seasonal_warning(destination: str, travel_dates: str) -> str:
                 return data["warning"]
     return ""
 
-def estimate_distance_and_transport(origin: str, destination: str) -> dict:
-    """
-    Web search to estimate real distance and transport cost.
-    Returns transport mode, estimated cost, and duration.
-    """
-    result = web_search(f"distance {origin} to {destination} km how to reach bus train")
-    return result[:400]
+def get_emergency_contacts(destination: str) -> tuple:
+    dest_lower = destination.lower()
+    for key, contacts in EMERGENCY_CONTACTS_DB.items():
+        if key in dest_lower or dest_lower in key:
+            return contacts
+    return EMERGENCY_CONTACTS_DB["default"]
+
+def _trim(text: str, limit: int = 200) -> str:
+    text = (text or "N/A").strip()
+    return text[:limit] + "..." if len(text) > limit else text
 
 def itinerary_agent(state: TripState) -> TripState:
-    print("📅  Itinerary Agent running...")
+    print("Itinerary Agent running...")
     llm = get_llm(temperature=0.2, max_tokens=2000)
 
-    destination  = state.get("destination_preference", "India")
-    origin       = state.get("origin", "your city")
-    travel_dates = state.get("travel_dates", "")
-    travelers    = state.get("travelers", 1)
-    duration     = state.get("duration_days", 1)
-    budget       = state.get("budget_inr", 0)
-    interests    = state.get("interests", "General travel")
+    destination     = state.get("destination_preference", "India")
+    origin          = state.get("origin", "your city")
+    travel_dates    = state.get("travel_dates", "")
+    duration        = state.get("duration_days", 1)
+    travelers       = state.get("travelers", 1)
+    budget          = state.get("budget_inr", 0)
+    interests       = state.get("interests", "General travel")
+    specific_places = state.get("specific_places", "").strip()
 
-    rag_context      = query_rag("destinations", f"itinerary {destination} activities", k=2)
-    seasonal_warning = get_seasonal_warning(destination, travel_dates)
+    seasonal_warning             = get_seasonal_warning(destination, travel_dates)
+    hospital_contact, helpline   = get_emergency_contacts(destination)
 
-    # Web search for both distance/transport AND destination info
-    distance_info = estimate_distance_and_transport(origin, destination)
-    dest_web_info = web_search(f"{destination} India travel places visit hotel stay food 2025")
+    # Parse start/end date for display
+    from tools.calendar_tool import parse_travel_dates
+    start_date, end_date, _ = parse_travel_dates(travel_dates)
 
-    prompt = f"""You are a senior professional Indian travel planner with deep knowledge of local transport.
+    # Web search for real prices
+    price_info    = web_search(f"cheapest hotel {destination} India price per night budget 2025")
+    transport_web = web_search(f"distance {origin} to {destination} km bus train fare 2025")
+    places_web    = web_search(f"best places to visit {destination} {specific_places if specific_places else 'top tourist spots'} India")
 
-═══ MOST IMPORTANT RULE — TRANSPORT COST ═══
-You MUST determine the REAL distance between {origin} and {destination} using the web research below.
-Then choose the CORRECT and CHEAPEST realistic transport mode:
+    rag_context = query_rag("destinations", f"itinerary {destination} activities", k=2)
 
-DISTANCE RULES:
-- 0-30 km:   Local bus/auto/shared jeep — Rs.20-100 total. NO train, NO flight.
-- 30-100 km: Bus (APSRTC/TSRTC/state bus) — Rs.50-200 per person. Train possible.
-- 100-300 km: Bus or train — Rs.100-500 per person. No flight.
-- 300-600 km: Train (sleeper/3AC) — Rs.300-800 per person. Flight if budget allows.
-- 600+ km:   Flight or overnight train — Rs.2,000-8,000 per person for flight.
+    # Places instruction
+    if specific_places:
+        places_instruction = f"""USER WANTS TO VISIT THESE SPECIFIC PLACES: {specific_places}
+Include ALL of these in the itinerary. Add other nearby attractions to fill the days."""
+    else:
+        places_instruction = f"""USER DID NOT SPECIFY PLACES.
+Use the web search results below to choose the BEST places to visit in {destination}.
+WEB SEARCH FOR PLACES: {places_web[:400]}"""
 
-DISTANCE RESEARCH for {origin} → {destination}:
-{distance_info}
+    prompt = f"""You are a professional Indian travel planner. Create a REALISTIC, ACCURATE itinerary.
 
-ACCOMMODATION RULES (match budget to actual local prices):
-- Small towns/villages: Rs.300-800/night (basic lodge/dharamshala/local guesthouse)
-- Tier-3 cities: Rs.500-1,200/night (budget hotel)
-- Tier-2 cities: Rs.800-2,000/night (decent hotel)
-- Tier-1 cities/hill stations: Rs.1,500-4,000/night (mid-range hotel)
-- Tourist hotspots: Rs.2,000-6,000/night (varies widely)
-- If budget is tight: suggest homestay/dharamshala/lodge
+TRANSPORT DISTANCE RULES (STRICT — DO NOT DEVIATE):
+- Distance < 100 km: LOCAL BUS only (APSRTC/TSRTC/state bus) — Rs.20-100 per person
+- Distance 100-700 km: SLEEPER TRAIN — Rs.200-800 per person
+- Distance > 700 km: FLIGHT — Rs.3,000-8,000 per person one way
+Search the actual distance first, then apply the correct rule.
 
-FOOD COST RULES (realistic Indian 2025 prices):
-- Local dhaba/street food: Rs.80-150 per meal per person
-- Budget restaurant: Rs.150-300 per meal per person  
-- Mid-range restaurant: Rs.300-600 per meal per person
-- Do NOT suggest 5-star restaurants for budget trips
+ACCOMMODATION RULES:
+- Always suggest the CHEAPEST decent option (budget lodge, guesthouse, Zostel, OYO budget)
+- Use web search prices: {price_info[:300]}
+- Small towns: Rs.300-700/night | Tier-2 cities: Rs.600-1,200/night | Metros: Rs.800-2,000/night
 
-═══ SEASONAL ADVISORY ═══
-{seasonal_warning if seasonal_warning else "No major seasonal concerns."}
+IMPORTANT RULES:
+1. NO Day 0 — start directly from Day 1 (travel day is Day 1)
+2. Calculate duration from dates: {travel_dates} = {duration} days
+3. {places_instruction}
+4. Budget total MUST equal exactly Rs.{budget:,}
+5. Use REAL entry fees (Kailasagiri Rs.50, Vizag Museum Rs.20, most temples FREE)
+6. Transport cost from distance rules above — web searched: {transport_web[:300]}
+7. Meal prices: dhaba Rs.80-150/meal, local restaurant Rs.150-300/meal
+8. NEVER write placeholder text like [insert name] — use real names or "local dhaba"
 
-═══ TRIP DETAILS ═══
-Origin      : {origin}
-Destination : {destination}
-Dates       : {travel_dates}
-Duration    : {duration} days
-Travelers   : {travelers}
-Budget      : Rs.{budget:,} TOTAL (Rs.{budget//max(travelers,1):,} per person)
-Interests   : {interests}
+SEASONAL WARNING: {seasonal_warning if seasonal_warning else "None"}
 
-═══ DESTINATION RESEARCH ═══
-{dest_web_info[:400]}
+TRIP:
+- From: {origin} | To: {destination}
+- Dates: {travel_dates} ({duration} days)
+- Travelers: {travelers} | Budget: Rs.{budget:,} (Rs.{budget//max(travelers,1):,}/person)
+- Interests: {interests}
 
-═══ AGENT RESEARCH ═══
-Destination : {_trim(state.get('destination_report'))}
-Hotels      : {_trim(state.get('hotel_report'))}
-Food        : {_trim(state.get('food_culture_report'))}
-Transport   : {_trim(state.get('transport_report'))}
-Weather     : {_trim(state.get('weather_report'))}
-Safety      : {_trim(state.get('safety_report'))}
-RAG         : {_trim(rag_context, 100)}
+RESEARCH:
+Destination: {_trim(state.get('destination_report'))}
+Hotels: {_trim(state.get('hotel_report'))}
+Food: {_trim(state.get('food_culture_report'))}
+Transport: {_trim(state.get('transport_report'))}
+Weather: {_trim(state.get('weather_report'))}
 
-═══ BUDGET ALLOCATION RULES ═══
-First figure out the REAL transport cost based on actual distance (from research above).
-Then allocate the REMAINING budget realistically across accommodation, food, activities.
-The TOTAL must equal exactly Rs.{budget:,}.
-
-Example for short trip (Gollaprolu→Kakinada 24km):
-- Transport: Rs.100-200 (local bus, both ways for 2 people)
-- Hotel 1 night: Rs.600-1,200 (budget lodge in small city)
-- Food: Rs.800-1,200 (local dhabas)
-- Activities: Rs.200-500
-- Buffer: remaining amount
-
-═══ WRITE THE COMPLETE ITINERARY ═══
+FORMAT — FOLLOW EXACTLY:
 
 FULL TRIP PLAN: {destination.upper()}
 From: {origin} | Dates: {travel_dates} | Travelers: {travelers} | Budget: Rs.{budget:,}
 
-{f"⚠️ ADVISORY: {seasonal_warning}" if seasonal_warning else ""}
-
 PRE-TRIP CHECKLIST:
-1. [Specific actionable item]
-2. [Specific actionable item]  
-3. [Specific actionable item]
+1. [specific action]
+2. [specific action]
+3. [specific action]
 
 DAY-BY-DAY PLAN:
+(Start from Day 1 — NO Day 0)
 
-Day 0 ({travel_dates.split(' to ')[0] if ' to ' in travel_dates else ''}) - Travel from {origin} to {destination}
-[Show CORRECT transport mode based on actual distance, with real cost]
-[Evening arrival plan]
+Day 1 ({start_date}) - Travel from {origin} + Arrival at {destination}
+[Travel using correct transport based on distance rule]
+[Check-in to cheapest good hotel]
+[Evening activity at destination]
 
-[Each full day: minimum 6 bullet points with times 8AM-9PM]
-Day N (Date) - [Theme]
-• 8:00 AM - Breakfast at [local place] (Rs.XX per person)
-• 9:00 AM - [Activity] (entry: Rs.XX or free)
-• 11:00 AM - [Activity] (entry: Rs.XX or free)
-• 1:00 PM - Lunch at [local dhaba/restaurant] (Rs.XX per person)
-• 2:30 PM - [Activity]
-• 4:30 PM - [Activity]
-• 7:00 PM - Dinner at [local place] (Rs.XX per person)
+Day 2 onwards - [Theme]
+[8 AM to 9 PM schedule, 6+ activities, real prices]
 
-Day {duration+1} - Return to {origin}
-[Transport back, realistic cost]
+Day {duration} ({end_date}) - Return to {origin}
+[Morning checkout, travel back]
 
 BUDGET TABLE:
 | Category | Amount | Notes |
 |----------|--------|-------|
-| Transport {origin}↔{destination} | Rs.XXXX | [CORRECT mode — bus/train/auto based on distance] |
-| Accommodation ({duration} nights) | Rs.XXXX | Rs.XXXX/night [realistic for {destination}] |
-| Food & Meals | Rs.XXXX | Rs.XXX/day approx (local prices) |
+| Transport {origin} to {destination} (round trip) | Rs.XXXX | [bus/train/flight based on distance] |
+| Accommodation ({duration} nights) | Rs.XXXX | Rs.XXX/night (budget hotel name) |
+| Food & Meals | Rs.XXXX | Rs.XXX/day local prices |
 | Activities & Entry Fees | Rs.XXXX | |
-| Local Transport at {destination} | Rs.XXXX | |
+| Local Transport | Rs.XXXX | |
 | Shopping / Misc | Rs.XXXX | |
 | Buffer | Rs.XXXX | |
-| **TOTAL** | **Rs.{budget:,}** | |
+| TOTAL | Rs.{budget:,} | |
 
-PACKING LIST (5 items specific to {destination} and this season):
+PACKING LIST (5 items for {destination} in {travel_dates}):
 
 EMERGENCY CONTACTS:
-• Police: 100 | Ambulance: 108 | Emergency: 112
-• {{hospital_contact}}
-• {{helpline_contact}}
+- Police: 100 | Ambulance: 108 | Emergency: 112
+- {hospital_contact}
+- {helpline}
 
-3 PRO TIPS FOR {destination.upper()}:
-1. [Specific genuine tip]
-2. [Specific genuine tip]
-3. [Specific genuine tip]"""
+3 PRO TIPS for {destination.upper()}:"""
 
     return {**state, "itinerary": invoke_with_retry(llm, prompt)}

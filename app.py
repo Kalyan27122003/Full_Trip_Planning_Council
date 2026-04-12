@@ -110,14 +110,24 @@ with left_col:
         travel_dates = st.text_input("📅 Travel Dates",
                                      placeholder="e.g. 15 Dec 2024 to 22 Dec 2024")
 
-        col1, col2 = st.columns(2)
-        with col1:
-            duration = st.number_input("🌙 Duration (days)", min_value=1, max_value=30, value=5)
-        with col2:
-            travelers = st.number_input("👥 Travelers", min_value=1, max_value=20, value=2)
+        travelers = st.number_input("👥 Travelers", min_value=1, max_value=20, value=2)
+
+        specific_places = st.text_input(
+            "📍 Specific Places to Visit (optional)",
+            placeholder="e.g. Kakinada Beach, Coringa Wildlife Sanctuary, Annavaram Temple",
+            help="Leave empty to auto-select best places from web search"
+        )
 
         budget = st.number_input("💰 Total Budget (₹)", min_value=1000,
                                  max_value=1000000, value=50000, step=5000, format="%d")
+        # Auto-calculate duration from travel_dates
+        duration = 1
+        if travel_dates and " to " in travel_dates.lower():
+            try:
+                from tools.calendar_tool import parse_travel_dates
+                _, _, duration = parse_travel_dates(travel_dates)
+            except Exception:
+                duration = 1
 
         interests = st.multiselect(
             "🎯 Your Interests",
@@ -136,7 +146,7 @@ with left_col:
                                           use_container_width=True, type="primary")
 
     # ── Live Budget Check (real-time preview) ─────────────────
-    if destination_pref and duration and travelers and budget:
+    if destination_pref and travelers and budget:
         validation = validate_budget(destination_pref, int(budget), int(duration), int(travelers))
 
         if not validation["valid"]:
