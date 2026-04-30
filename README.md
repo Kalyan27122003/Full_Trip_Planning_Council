@@ -6,14 +6,19 @@
 
 ## 🖥️ App UI
 
+<<<<<<< HEAD
 ![App UI]<img width="1920" height="1080" alt="Screenshot (1412)" src="https://github.com/user-attachments/assets/7c321042-b76b-4a52-876c-0a9bbc719fe5" />
 
+=======
+<img width="1920" alt="App UI" src="https://github.com/user-attachments/assets/7c321042-b76b-4a52-876c-0a9bbc719fe5" />
+>>>>>>> 654c59d (update)
 
 ---
 
 ## 📧 Email Output — Full Itinerary
 
 ### Email Header & Trip Summary
+<<<<<<< HEAD
 ![Email Header<img width="1920" height="1080" alt="Screenshot (1414)" src="https://github.com/user-attachments/assets/2b327ff6-a0fd-49d8-a71d-1cffb7711989" />
 ]<img width="1920" height="1080" alt="Screenshot (1413)" src="https://github.com/user-attachments/assets/8bbba35e-191f-461d-9934-023516c7a67d" />
 
@@ -39,6 +44,24 @@
 ### Google Calendar Button & Agent Badges
 ![Calendar and Footer18]![Uploading Screenshot (1418).png…]()
 
+=======
+<img width="1920" alt="Email Header" src="https://github.com/user-attachments/assets/8bbba35e-191f-461d-9934-023516c7a67d" />
+
+### Day-by-Day Plan
+<img width="1920" alt="Day by Day Plan" src="https://github.com/user-attachments/assets/2b327ff6-a0fd-49d8-a71d-1cffb7711989" />
+
+### More Days
+<img width="1920" alt="More Days" src="https://github.com/user-attachments/assets/c17ce666-cd96-411a-a47c-ecc3d5dbbbc1" />
+
+### Budget Summary Table
+<img width="1920" alt="Budget Summary" src="https://github.com/user-attachments/assets/5b3a4675-1985-42fe-b666-89a28845dc27" />
+
+### Packing List & Emergency Contacts
+<img width="1920" alt="Packing List" src="https://github.com/user-attachments/assets/02da87b7-5ba1-4ad7-9bd1-c2012cb84313" />
+
+### Google Calendar Button & Agent Badges
+<img width="1920" alt="Calendar and Footer" src="https://github.com/user-attachments/assets/df2892ea-3a5a-4efc-a040-a61a0451c255" />
+>>>>>>> 654c59d (update)
 
 ---
 
@@ -86,8 +109,8 @@
 
 ```bash
 # Clone the repo
-git clone https://github.com/Kalyan27122003/full-trip-planning-council
-cd full-trip-planning-council
+git clone https://github.com/Kalyan27122003/Full_Trip_Planning_Council
+cd Full_Trip_Planning_Council
 
 # Install dependencies
 uv venv
@@ -119,7 +142,7 @@ LANGSMITH_PROJECT=full_trip_planner
 ## 📁 Project Structure
 
 ```
-full-trip-planning-council/
+Full_Trip_Planning_Council/
 ├── app.py                    # Streamlit UI
 ├── agents/
 │   ├── currency_helper.py    # Global currency & country detection
