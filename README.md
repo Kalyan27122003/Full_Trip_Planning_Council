@@ -1,4 +1,4 @@
-# ✈️ Full Trip Planning Council
+<img width="1920" height="1080" alt="Screenshot (1416)" src="https://github.com/user-attachments/assets/09a6df24-134d-4eda-9f44-df2076fd1b50" /><img width="1920" height="1080" alt="Screenshot (1416)" src="https://github.com/user-attachments/assets/23725a86-39a3-40c8-a941-41c26f5c86b3" /># ✈️ Full Trip Planning Council
 
 > **A Multi-Agent AI Travel Planner** — Plan trips anywhere in the world with 9 specialist AI agents, live web search, real-time weather, Gmail notifications, and Google Calendar integration.
 
@@ -6,29 +6,39 @@
 
 ## 🖥️ App UI
 
-![App UI12]
+![App UI]<img width="1920" height="1080" alt="Screenshot (1412)" src="https://github.com/user-attachments/assets/7c321042-b76b-4a52-876c-0a9bbc719fe5" />
+
 
 ---
 
 ## 📧 Email Output — Full Itinerary
 
 ### Email Header & Trip Summary
-![Email Header13]
+![Email Header<img width="1920" height="1080" alt="Screenshot (1414)" src="https://github.com/user-attachments/assets/2b327ff6-a0fd-49d8-a71d-1cffb7711989" />
+]<img width="1920" height="1080" alt="Screenshot (1413)" src="https://github.com/user-attachments/assets/8bbba35e-191f-461d-9934-023516c7a67d" />
+
 
 ### Day-by-Day Plan
-![Day by Day Plan14]
+![Day by Day Plan14]<img width="1920" height="1080" alt="Screenshot (1415)" src="https://github.com/user-attachments/assets/c17ce666-cd96-411a-a47c-ecc3d5dbbbc1" />
+![Uploading Screenshot (1414).png…]()
+
 
 ### More Days
-![More Days15]
+![More Days15]![Uploading Screenshot (1415).png…]()
+
 
 ### Budget Summary Table
-![Budget Summary16]
+![Budget Summary16]<img width="1920" height="1080" alt="Screenshot (1416)" src="https://github.com/user-attachments/assets/5b3a4675-1985-42fe-b666-89a28845dc27" />
+
 
 ### Packing List & Emergency Contacts
-![Packing List17]
+![Packing List17]<img width="1920" height="1080" alt="Screenshot (1418)" src="https://github.com/user-attachments/assets/df2892ea-3a5a-4efc-a040-a61a0451c255" />
+<img width="1920" height="1080" alt="Screenshot (1417)" src="https://github.com/user-attachments/assets/02da87b7-5ba1-4ad7-9bd1-c2012cb84313" />
+
 
 ### Google Calendar Button & Agent Badges
-![Calendar and Footer18]
+![Calendar and Footer18]![Uploading Screenshot (1418).png…]()
+
 
 ---
 
